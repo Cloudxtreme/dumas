@@ -1,0 +1,23 @@
+{
+  "name": "dumas",
+  "version": "0.0.1",
+  "description": "MUD!",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhasenan/dumas.git"
+  },
+  "dependencies": {
+    "argparse": "1.0.7",
+    "bunyan": "^1.8.1",
+    "chai": "^3.5.0",
+    "coffee-script": "1.10.0"
+  },
+  "devDependencies": {
+    "mocha": "2.5.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register",
+    "start": "./node_modules/.bin/coffee src/main.coffee"
+  }
+}
