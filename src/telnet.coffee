@@ -110,6 +110,7 @@ class TelnetSocket
       when Opt.GMCP
         console.log "gmcp"
       when Opt.CHARSET
+        console.log "charset"
         if cmd[1] == Charset.ACCEPT
           buf = Buffer.from cmd.slice 2
           charset = buf.toString 'ascii'
@@ -120,6 +121,7 @@ class TelnetSocket
               @charset = 'ascii'
 
       when Tel.DO
+        console.log "DO"
         type = cmd[1]
         if type == Opt.CHARSET
           @askAboutCharsets()

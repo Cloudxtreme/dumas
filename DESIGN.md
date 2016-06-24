@@ -29,7 +29,29 @@ Interesting bits for the game state: some is durable and some isn't. For instanc
 
 Base content
 ============
-We load base content from a series of coffeescript files. (I think. I'll try it.)
+We load base content from a series of coffeescript files. By using coffeescript, we can implement procedural generation trivially.
 
-We also 
+The base content load can stash some data to generate consistent data.
 
+(How do I get *consistent* procedural generation in the face of algorithmic changes? Option 1 is to store everything. Option 2 is to )
+
+
+
+
+
+
+Generating thematically consistent things
+=========================================
+The basic way to generate a thematically consistent thing (NPCs in a faction, buildings in a city, etc) is:
+* Generate a feature space. Normalize the length of each dimension.
+* Pick a point in that feature space. That's your kernel, your archetype.
+* Pick a maximum radius.
+* When creating an individual component, you choose a random point in its feature space.
+
+For some things, this works pretty well. Features that lend themselves to total orderings. For others, not so much. Like building material -- do you put brick and cinder block side by side? Brick and stone? Brick and something else? Do I treat building material as several dimenions so you can get more neighbors? But that forces everything to have more neighbors.
+
+So I don't just take the generic feature-space version all the time. For some features, I choose several options with relative frequencies.
+
+What about subnexuses within the space? Like I want to pick the lizard-people out, and then I want to pick out lizard-people nobility. I apply my main thing for the faction, then make a subfaction within that faction. I can make several such subfactions.
+
+I can separate things into several feature spaces. For instance, I want several races. I procedurally generate them, using things like skin type (feathers, hair, etc), weight, size, number of limbs... Then I procedurally generate a nationality, and that includes race as a feature.

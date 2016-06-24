@@ -12,8 +12,7 @@ main = () ->
   server = new telnet.TelnetServer host, port
   server.on 'connection', (c) ->
     c.write "Hi there!\n"
-    c.close()
-    #setTimeout (-> c.close()), 100
+    setTimeout (-> c.close()), 1000
   server.listen()
   console.log "listening on #{host}:#{port}"
 
